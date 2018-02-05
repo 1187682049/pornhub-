@@ -24,13 +24,9 @@ while flag<=100:
         find_tittle=re.findall(r'<span class="inlineFree">(.*?)</span>',str(reqpage.content,'utf-8',errors='ignore'))
         try:
             download_url=find[0].replace('\\','')
-            if not os.path.isfile('url.txt'):
-                with open('url.txt','a') as f:
-                    f.write(download_url)
-                    f.write('\n')
-            else:
-                print('已存在url.txt文件')
-                break
+            with open('url.txt','a') as f:
+                f.write(download_url)
+                f.write('\n')
         except IndexError:
             print('没有此清晰度')
             pass
